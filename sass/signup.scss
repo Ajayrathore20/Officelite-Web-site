@@ -1,0 +1,60 @@
+@use "abstract/variables" as *;
+
+@use "component/countdown" as *;
+@use "component/subscription-form" as *;
+@use "component/buttons" as *;
+
+@use "layout/header" as *;
+@use "layout/background" as * with(
+    $mobile-bg-breakpoint: 74%,
+    $tablet-bg-breakpoint: 71%
+);
+
+main {
+    padding-bottom: 5.4375rem;
+    display: flex;
+    gap: 4rem;
+    flex: {
+        direction: column;
+        wrap: nowrap;
+    }
+}
+
+.introduction__content {
+    width: 87.2%;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    gap: 1rem;
+    flex: {
+        direction: column;
+        wrap: nowrap;
+    }
+
+    p {
+        color: $bluish-grey;
+    }
+}
+
+.countdown--light {
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    main {
+        padding-bottom: 7.6875rem;
+        gap: 2.5rem;
+    }
+
+    .introduction__content {
+        max-width: 573px;
+        
+        h1 {
+            margin-top: 3.625rem;
+        }
+    }
+
+    .subscription-form {
+        margin-top: 1.5rem;
+    }
+}

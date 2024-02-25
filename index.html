@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/vue@3.1.4/dist/vue.global.js"></script>
+  
+  <title>Ajay Rathore👋| Officelite coming soon site</title>
+</head>
+<body>
+  <header>
+    <img src="assets/shared/logo.svg" alt="Officelite" class="logo">
+  </header>
+  <main id="app">
+    <div class="introduction">
+      <img src="assets/home/illustration-charts.svg" alt="" class="introduction__img">
+      <div class="introduction__content">
+        <h1>A simple solution to complex tasks is coming soon</h1>
+        <p>Say goodbye to inefficient juggling of multiple apps, teams, and projects. Officelite is the new collaboration platform built with an intuitive interface to improve productivity.</p>
+        <a href="sign-up.html" class="cto-button button--primary">Get Started</a>
+      </div>
+    </div>
+    <ul class="plans">
+      <li class="plans__plan" v-for="plan in plansList">
+        <h2 class="plans__plan-name">{{ plan.name }}</h2>
+        <p>
+          <span class="plans__plan-pricing">{{ plan.price }}</span>
+          <span class="plans__plan-pricedesc">{{ plan.priceDescription }}</span>
+        </p>
+        <ul class="plans__perks">
+          <li v-for="perk in plan.perksList">
+            {{ perk }}
+          </li>
+        </ul>
+        <a href="sign-up.html" 
+          v-bind:class="(plan.name == 'Pro') ? 'button--secondary-white' : 'button--secondary-blue'"
+        >Try for free</a>
+      </li>
+    </ul>
+    <div class="countdown--dark countdown--specifics">
+      <countdown-timer v-bind:end="releaseDate"></countdown-timer>
+      <a href="sign-up.html" class="button--primary">Get Started</a>
+    </div>
+  </main>
+</body>
+<script src="js/app.js"></script>
+</html>

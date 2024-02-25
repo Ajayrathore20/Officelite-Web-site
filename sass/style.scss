@@ -1,0 +1,357 @@
+@use "abstract/variables" as *;
+
+@use "component/countdown" as *;
+@use "component/buttons" as *;
+
+@use "layout/header" as *;
+@use "layout/background" as *;
+
+main {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 6.25rem;
+    padding-bottom: 2rem;
+    flex: {
+        direction: column;
+        wrap: nowrap;
+    }
+
+    &.sign-up {
+        gap: 4rem;
+    }
+}
+
+.introduction {
+    display: flex;
+    align-items: center;
+    padding-top: 2.5rem;
+    gap: 4rem;
+    flex: {
+        direction: column;
+        wrap: nowrap;
+    }
+}
+
+.introduction__img {
+    width: 45.6%;
+}
+
+.introduction__content {
+    width: 87.2%;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    gap: 1.5rem;
+    flex: {
+        direction: column;
+        wrap: nowrap;
+    }
+
+    h1 {
+        color: $bluish-black;
+        line-height: 3rem;
+        font: {
+            size: 2.5rem;
+            weight: 700;
+        }
+    }
+
+    p {
+
+        color: $bluish-grey;
+        line-height: 1.625rem;
+        font: {
+            size: 1rem;
+            weight: 400;
+        }
+    }
+}
+
+.plans {
+    display: flex;
+    gap: 2rem;
+    flex: {
+        direction: column;
+        wrap: nowrap;
+    }
+
+    list-style: none;
+    padding: 0;
+    width: 87.2%;
+}
+
+.plans__plan {
+    border-radius: 0.8125rem;
+    background: white;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2.5rem 0;
+    color: $bluish-black;
+    flex: {
+        direction: column;
+        wrap: nowrap;
+    }
+
+    &:nth-child(2) {
+        @extend .plans__plan;
+        color: white;
+        background: url("../assets/home/bg-pattern-pricing.svg"), $blue;
+        background: {
+            size: 260%;
+            position-x: center;
+            position-y: bottom;
+            repeat: no-repeat;
+        }
+
+        @media (min-width: 768px) {
+            background: {
+                size: 880px;
+                position-y: center;
+                position-x: left -319px;
+            }
+        }
+
+        @media (min-width: 1260px) {
+            background: {
+                size: 200%;
+                position-x: center;
+                position-y: bottom;
+                repeat: no-repeat;
+            }
+        }
+
+        .plans__perks {
+            color: inherit;
+            opacity: 0.75;
+        }
+    }
+}
+
+.plans__plan-name {
+    font: {
+        size: 1.25rem;
+        weight: 700;
+    }
+}
+
+.plans__plan-pricing {
+    display: block;
+    text-align: center;
+    font: {
+        weight: 700;
+        size: 3.5rem;
+    }
+}
+
+.plans__perks {
+    list-style: none;
+    text-align: center;
+    line-height: 1.75rem;
+    color: $bluish-grey;
+    padding: 0;
+    margin-top: 1.5rem;
+
+    & > li:not(:last-child) {
+        margin-bottom: 1rem;
+    }
+}
+
+.countdown--specifics {
+    & a {
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 768px) {
+    main {
+        width: 89.8%;
+        margin: 0 auto;
+    }
+
+    main.sign-up {
+        padding-bottom: 7.7rem;
+    }
+
+    .introduction {
+        align-items: center;
+        gap: 3.9rem;
+        flex: {
+            direction: row-reverse;
+            wrap: nowrap;
+        }
+
+        & > * {
+            flex: {
+                grow: 0;
+                shrink: 0;
+                basis: calc(50% - 1.95rem);
+            }
+        }
+    }
+
+    .introduction__content {
+        text-align: start;
+        align-items: flex-start;
+
+        &.sign-up {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+            align-items: center;
+        }
+    }
+
+    .plans {
+        width: 100%;
+        gap: 1.5rem;
+    }
+
+    .plans__plan {
+        padding: 3rem;
+        display: grid;
+        grid-template-areas: 
+            "name list"
+            "price list"
+            "button list";
+
+        & > p {
+            grid-area: price;
+        }
+
+        & > a {
+            white-space: nowrap;
+            width: min-content;
+            margin-top: 1.5rem;
+        }
+    }
+
+    .plans__plan-name {
+        grid-area: name;
+    }
+
+    .plans__plan-pricing {
+        text-align: start;
+    }
+
+    .plans__perks {
+        grid-area: list;
+        text-align: start;
+    }
+
+    .countdown__timer {
+        & > * {
+            padding: 1.2rem 1.125rem 1rem 1.125rem;
+        }
+
+        & .number {
+            font: {
+                size: 3.5rem;
+            }
+        }
+
+        & label {
+            margin-bottom: -0.5rem;
+        }
+    }
+}
+
+@media (min-width: 1260px) {
+    main {
+        width: 77%;
+        margin: 0 auto;
+    }
+
+    .introduction {
+        gap: 5.94rem;
+
+        & > * {
+            flex: {
+                grow: 0;
+                shrink: 0;
+                basis: calc(50% - 2.8rem);
+            }
+        }
+    }
+
+    .introduction__content {
+        h1 {
+            line-height: 4rem;
+            font: {
+                size: 3.5rem;
+            }
+        }
+
+        p {
+            line-height: 1.75rem;
+            font: {
+                size: 1.125rem;
+            }
+        }
+    }
+
+    .plans {
+        flex: {
+            direction: row;
+            wrap: nowrap;
+        }
+    }
+
+    .plans__plan {
+        display: flex;
+        width: 100%;
+        gap: 2rem;
+        padding: 2.5rem 0;
+        flex: {
+            direction: column;
+            wrap: nowrap;
+        }
+
+        & > * {
+            flex: {
+                grow: 1;
+            }
+        }
+    }
+
+    .plans__perks {
+        text-align: center;
+    }
+
+    .countdown--specifics {
+        text-align: start;
+        max-width: 100%;
+        width: 100%;
+        display: grid;
+        align-items: center;
+        gap: 1rem;
+        padding: 0;
+        margin-bottom: 2rem;
+        grid-template-areas: 
+            "release button"
+            "timer button";
+
+        p {
+            text-align: start;
+        }
+
+        & > a {
+            grid-area: button;
+            margin: 0;
+            justify-self: end;
+            height: max-content;
+            width: max-content;
+        }
+    }
+
+    .release-date {
+        grid-area: release;
+    }
+
+    .countdown__timer {
+        grid-area: timer;
+        width: 448px;
+        margin: 0;
+    }
+}

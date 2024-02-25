@@ -35,7 +35,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [https://rngueco.github.io/frontend-mentor-projects/officelite-coming-soon-site/](https://rngueco.github.io/frontend-mentor-projects/officelite-coming-soon-site/)
+- Live Site URL: [https://rngueco.github.io/frontend-mentor-projects/officelite-coming-soon-site/](https://ajayrathore20.github.io/Officelite-Web-site/)
 
 ## My process
 
